@@ -10,36 +10,40 @@ const { heading = 'Get new recipes in your inbox', note = EMAIL.leadMagnetNote }
 const hasProvider = EMAIL.formAction.length > 0;
 ---
 
-<div class="rounded-2xl border border-stone-200 bg-stone-50 p-6 text-center">
-  <h3 class="text-xl font-bold text-stone-900">{heading}</h3>
-  <p class="mt-1 text-sm text-stone-600">{note}</p>
+{
+  EMAIL.enabled && (
+    <div class="rounded-2xl border border-stone-200 bg-stone-50 p-6 text-center">
+      <h3 class="text-xl font-bold text-stone-900">{heading}</h3>
+      <p class="mt-1 text-sm text-stone-600">{note}</p>
 
-  {
-    hasProvider ? (
-      <form action={EMAIL.formAction} method="post" class="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-center">
-        <label class="sr-only" for="email-optin-input">
-          Email address
-        </label>
-        <input
-          id="email-optin-input"
-          type="email"
-          name={EMAIL.emailFieldName}
-          required
-          placeholder="you@example.com"
-          class="w-full rounded-full border border-stone-300 px-4 py-2 sm:w-72"
-        />
-        <button
-          type="submit"
-          class="rounded-full bg-stone-900 px-6 py-2 font-semibold text-white transition hover:bg-stone-700"
-        >
-          Subscribe
-        </button>
-      </form>
-    ) : (
-      <p class="mt-4 rounded-lg bg-amber-100 p-3 text-sm text-amber-900">
-        Email capture not connected yet — set <code>EMAIL.formAction</code> in{' '}
-        <code>src/config/site.ts</code> to your Kit, beehiiv, or MailerLite form URL. See README.md.
-      </p>
-    )
-  }
-</div>
+      {
+        hasProvider ? (
+          <form action={EMAIL.formAction} method="post" class="mt-4 flex flex-col gap-2 sm:flex-row sm:justify-center">
+            <label class="sr-only" for="email-optin-input">
+              Email address
+            </label>
+            <input
+              id="email-optin-input"
+              type="email"
+              name={EMAIL.emailFieldName}
+              required
+              placeholder="you@example.com"
+              class="w-full rounded-full border border-stone-300 px-4 py-2 sm:w-72"
+            />
+            <button
+              type="submit"
+              class="rounded-full bg-stone-900 px-6 py-2 font-semibold text-white transition hover:bg-stone-700"
+            >
+              Subscribe
+            </button>
+          </form>
+        ) : (
+          <p class="mt-4 rounded-lg bg-amber-100 p-3 text-sm text-amber-900">
+            Email capture not connected yet — set <code>EMAIL.formAction</code> in{' '}
+            <code>src/config/site.ts</code> to your Kit, beehiiv, or MailerLite form URL. See README.md.
+          </p>
+        )
+      }
+    </div>
+  )
+}

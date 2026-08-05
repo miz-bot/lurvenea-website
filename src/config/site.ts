@@ -24,6 +24,7 @@ export const AMAZON_URL =
 // of a live form. See README.md "Email opt-in" section for exact steps
 // per provider.
 export const EMAIL = {
+  enabled: false, // set to true to show the EmailOptIn block sitewide again
   formAction: '', // e.g. 'https://app.kit.com/forms/1234567/subscriptions'
   emailFieldName: 'email_address', // Kit uses 'email_address'; beehiiv/MailerLite use 'email'
   leadMagnetNote: 'Free printable recipe cards, delivered straight to your inbox.',
