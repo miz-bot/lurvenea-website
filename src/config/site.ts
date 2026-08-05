@@ -6,7 +6,7 @@ export const SITE = {
   url: 'https://lurvenea.netlify.app', // must match `site` in astro.config.mjs
   description:
     'Lurvenea shares tested, easy-to-follow recipes with the exact tools and techniques that make them work every time.',
-  defaultOgImage: '/images/og-default.svg',
+  defaultOgImage: '/images/lurvenea-og-default.jpg',
   twitterHandle: '@lurvenea',
   locale: 'en_US',
 };

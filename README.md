@@ -154,5 +154,7 @@ places below, then commit and push — Netlify will redeploy automatically:
 - `SITE.url` in `src/config/site.ts` (must match the line above)
 - the `Sitemap:` line in `public/robots.txt`
 
-Also replace the placeholder SVG hero image on the sample recipe, and
-`public/images/og-default.svg`, with real photos before launch.
+The sample recipe's hero image and the site-wide default OG image
+(`public/images/lurvenea-og-default.jpg`, set via `SITE.defaultOgImage` in
+`src/config/site.ts`) are already real photos — swap them for your own
+whenever you want, using the same paths.
