@@ -18,7 +18,7 @@ npm run preview   # preview the production build locally
 
 ```
 src/
-  config/site.ts          site name, Amazon tag, analytics IDs, email form
+  config/site.ts          site name, Amazon link, analytics IDs, email form
   content.config.ts        recipe front-matter schema (validated with Zod)
   content/recipes/*.mdx    one file = one recipe page
   components/              AmazonButton, EmailOptIn, RecipeSchema (JSON-LD), etc.
@@ -56,7 +56,7 @@ public/
    | `ingredients`, `steps` | arrays of strings |
    | `whyItWorks`, `substitutions`, `tips` | optional arrays of strings |
    | `nutrition` | optional object (`calories`, `protein`, `fat`, `carbs`, `fiber`, `sugar`) |
-   | `amazonUrl`, `amazonCta` | product link + button text (see below) |
+   | `amazonCta` | Amazon button text — the link itself is site-wide (see below) |
    | `datePublished`, `category`, `prepTime`, `cookTime`, `servings` | |
 
 4. Write the long-form story/intro content as the body of the MDX file
@@ -69,18 +69,21 @@ The page automatically gets: responsive images, JSON-LD `Recipe` schema
 "Jump to Recipe" + Print button, related-recipes strip, the Amazon CTA, and
 the email opt-in block.
 
-## Setting your Amazon Associates tag
+## Setting your Amazon link
 
-Open `src/config/site.ts` and set your tag once:
+Open `src/config/site.ts` and set `AMAZON_URL` once:
 
 ```ts
-export const AMAZON = {
-  tag: 'your-real-tag-20',
-};
+export const AMAZON_URL =
+  'https://www.amazon.com/dp/YOUR_ASIN?tag=your-real-tag-20';
 ```
 
-Every recipe only needs a plain product URL in `amazonUrl` — the
-`AmazonButton` component appends `?tag=your-real-tag-20` automatically.
+Every recipe's `AmazonButton` links to this exact URL as-is — it's a
+single site-wide value, not built per recipe. If you're using an Amazon
+Attribution link (from Amazon's Attribution dashboard), paste the full
+click-through URL here unchanged; it already includes its own tracking
+params. Each recipe only customizes the button's visible text via the
+`amazonCta` front-matter field.
 
 ## Embedding your email form (Kit / beehiiv / MailerLite)
 

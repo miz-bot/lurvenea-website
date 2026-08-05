@@ -37,7 +37,8 @@ const recipes = defineCollection({
         .optional(),
 
       // --- Monetization ---
-      amazonUrl: z.string().url(),
+      // The Amazon link itself is a single site-wide value set in
+      // src/config/site.ts (AMAZON_URL) — recipes only customize the label.
       amazonCta: z.string().default('Get the kitchen tool that makes this easy'),
 
       // --- Meta ---

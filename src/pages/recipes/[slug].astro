@@ -32,7 +32,6 @@ const {
   substitutions,
   tips,
   nutrition,
-  amazonUrl,
   amazonCta,
   datePublished,
   category,
@@ -155,7 +154,7 @@ const heroImageUrl = new URL(heroImage.src, SITE.url).toString();
     )}
 
     <section class="mt-10 no-print">
-      <AmazonButton url={amazonUrl} label={amazonCta} />
+      <AmazonButton label={amazonCta} />
     </section>
 
     <section class="mt-10 no-print">

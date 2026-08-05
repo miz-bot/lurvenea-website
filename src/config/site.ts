@@ -11,24 +11,12 @@ export const SITE = {
   locale: 'en_US',
 };
 
-// --- Amazon Associates -------------------------------------------------
-// Set your Associates tracking ID here once. Every recipe only needs to
-// supply a plain product URL (amazonUrl) in its front-matter; the
-// AmazonButton component appends this tag automatically.
-export const AMAZON = {
-  tag: 'lurvenea-20', // <-- replace with your real Amazon Associates tag
-};
-
-/** Appends the Amazon Associates tag to a product URL. */
-export function buildAmazonAffiliateUrl(amazonUrl: string): string {
-  try {
-    const url = new URL(amazonUrl);
-    url.searchParams.set('tag', AMAZON.tag);
-    return url.toString();
-  } catch {
-    return amazonUrl;
-  }
-}
+// --- Amazon -------------------------------------------------------------
+// A single Amazon Attribution click-through URL, used as-is by every
+// recipe's AmazonButton. This is a full tagged link (not a base product
+// URL) — do not append `?tag=` or otherwise modify it.
+export const AMAZON_URL =
+  'https://www.amazon.com/dp/B0GF88ZP6W?maas=maas_adg_5F65D34D830903BA8CDAFC0742BE4EE0_afap_abs&ref_=aa_maas&tag=maas';
 
 // --- Email opt-in --------------------------------------------------------
 // Paste your form's action URL from Kit (ConvertKit), beehiiv, or

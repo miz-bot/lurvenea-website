@@ -1,17 +1,15 @@
 ---
-import { buildAmazonAffiliateUrl } from '../config/site';
+import { AMAZON_URL } from '../config/site';
 
 interface Props {
-  url: string;
   label?: string;
 }
 
-const { url, label = 'Get the kitchen tool that makes this easy' } = Astro.props;
-const href = buildAmazonAffiliateUrl(url);
+const { label = 'Get the kitchen tool that makes this easy' } = Astro.props;
 ---
 
 <a
-  href={href}
+  href={AMAZON_URL}
   target="_blank"
   rel="nofollow sponsored noopener"
   class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-amber-600"
