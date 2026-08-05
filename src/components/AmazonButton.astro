@@ -1,0 +1,22 @@
+---
+import { buildAmazonAffiliateUrl } from '../config/site';
+
+interface Props {
+  url: string;
+  label?: string;
+}
+
+const { url, label = 'Get the kitchen tool that makes this easy' } = Astro.props;
+const href = buildAmazonAffiliateUrl(url);
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="nofollow sponsored noopener"
+  class="inline-flex items-center justify-center gap-2 rounded-full bg-amber-500 px-6 py-3 font-semibold text-white shadow-sm transition hover:bg-amber-600"
+>
+  {label}
+  <span aria-hidden="true">&rarr;</span>
+</a>
+<p class="mt-1 text-xs text-stone-500">As an Amazon Associate, we earn from qualifying purchases.</p>

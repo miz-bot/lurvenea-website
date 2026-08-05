@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import RecipeCard from './RecipeCard.astro';
+
+interface Props {
+  currentSlug: string;
+  category: string;
+  limit?: number;
+}
+
+const { currentSlug, category, limit = 3 } = Astro.props;
+
+const allRecipes = await getCollection('recipes');
+const sameCategory = allRecipes.filter(
+  (r) => r.data.slug !== currentSlug && r.data.category === category
+);
+const fallback = allRecipes.filter((r) => r.data.slug !== currentSlug && r.data.category !== category);
+const related = [...sameCategory, ...fallback].slice(0, limit);
+---
+
+{
+  related.length > 0 && (
+    <section class="mt-12">
+      <h2 class="mb-4 text-2xl font-bold text-stone-900">You might also like</h2>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {related.map((recipe) => (
+          <RecipeCard recipe={recipe} />
+        ))}
+      </div>
+    </section>
+  )
+}

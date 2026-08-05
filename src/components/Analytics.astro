@@ -1,0 +1,19 @@
+---
+import { ANALYTICS } from '../config/site';
+---
+
+{ANALYTICS.plausibleDomain && (
+  <script defer data-domain={ANALYTICS.plausibleDomain} src="https://plausible.io/js/script.js"></script>
+)}
+
+{ANALYTICS.ga4MeasurementId && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS.ga4MeasurementId}`}></script>
+    <script is:inline define:vars={{ id: ANALYTICS.ga4MeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', id);
+    </script>
+  </>
+)}

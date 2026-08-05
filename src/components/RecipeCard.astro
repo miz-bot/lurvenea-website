@@ -1,0 +1,31 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  recipe: CollectionEntry<'recipes'>;
+}
+
+const { recipe } = Astro.props;
+const { title, heroImage, heroImageAlt, category, prepTime, cookTime } = recipe.data;
+---
+
+<a
+  href={`/recipes/${recipe.data.slug}`}
+  class="group flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md"
+>
+  <div class="aspect-[4/3] overflow-hidden">
+    <Image
+      src={heroImage}
+      alt={heroImageAlt ?? title}
+      width={480}
+      height={360}
+      class="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+    />
+  </div>
+  <div class="flex flex-1 flex-col gap-1 p-4">
+    <span class="text-xs font-semibold uppercase tracking-wide text-amber-600">{category}</span>
+    <h3 class="text-lg font-bold text-stone-900">{title}</h3>
+    <p class="mt-auto text-sm text-stone-500">{prepTime} prep &middot; {cookTime} cook</p>
+  </div>
+</a>

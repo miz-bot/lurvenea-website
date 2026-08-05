@@ -1,0 +1,33 @@
+---
+// Reusable product card for /shop. Wire `url` up to a Gumroad or Lemon
+// Squeezy checkout/product link. See README.md "Adding a shop product".
+interface Props {
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+  url: string;
+  cta?: string;
+}
+
+const { title, description, price, image, url, cta = 'Buy now' } = Astro.props;
+---
+
+<div class="flex flex-col overflow-hidden rounded-2xl border border-stone-200 bg-white shadow-sm">
+  <img src={image} alt={title} class="aspect-[4/3] w-full object-cover" loading="lazy" />
+  <div class="flex flex-1 flex-col gap-2 p-5">
+    <h3 class="text-lg font-bold text-stone-900">{title}</h3>
+    <p class="flex-1 text-sm text-stone-600">{description}</p>
+    <div class="mt-2 flex items-center justify-between">
+      <span class="font-semibold text-stone-900">{price}</span>
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener"
+        class="rounded-full bg-stone-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-stone-700"
+      >
+        {cta}
+      </a>
+    </div>
+  </div>
+</div>

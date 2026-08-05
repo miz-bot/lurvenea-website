@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+
+const lastUpdated = 'August 5, 2026';
+---
+
+<BaseLayout title={`Privacy Policy | ${SITE.name}`} description={`Privacy policy for ${SITE.name}.`}>
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h1 class="text-4xl font-extrabold text-stone-900">Privacy Policy</h1>
+    <p class="mt-2 text-sm text-stone-500">Last updated: {lastUpdated}</p>
+
+    <div class="prose prose-stone mt-6 max-w-none">
+      <h2>Information We Collect</h2>
+      <p>
+        If you subscribe to our email list, we collect your email address through our email service
+        provider. We do not collect payment information directly — purchases are handled by third-party
+        platforms (such as Amazon, Gumroad, or Lemon Squeezy) under their own privacy policies.
+      </p>
+
+      <h2>Cookies and Analytics</h2>
+      <p>
+        We may use privacy-friendly analytics (such as Plausible) or Google Analytics to understand how
+        visitors use this site. These tools may use cookies or similar technologies to collect anonymized
+        usage data.
+      </p>
+
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        {SITE.name} is a participant in the Amazon Services LLC Associates Program, an affiliate advertising
+        program designed to provide a means for sites to earn advertising fees by advertising and linking to
+        Amazon.com. As an Amazon Associate, we earn from qualifying purchases.
+      </p>
+
+      <h2>Email Communications</h2>
+      <p>
+        If you subscribe, we'll send you recipe updates and occasional offers. You can unsubscribe at any
+        time using the link at the bottom of any email.
+      </p>
+
+      <h2>Third-Party Services</h2>
+      <p>
+        This site may embed content or use services from third parties (email providers, video hosts,
+        analytics providers) that have their own privacy policies governing the use of your information.
+      </p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to the contact address listed on our About page.</p>
+    </div>
+  </section>
+</BaseLayout>

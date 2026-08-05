@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { SITE } from '../config/site';
+
+// Add products here as they go live. Point `url` at a Gumroad or Lemon
+// Squeezy product/checkout link. See README.md "Adding a shop product".
+const products: {
+  title: string;
+  description: string;
+  price: string;
+  image: string;
+  url: string;
+}[] = [];
+---
+
+<BaseLayout title={`Shop | ${SITE.name}`} description="Digital recipe guides and ebooks from Lurvenea.">
+  <section class="mx-auto max-w-5xl px-4 py-14">
+    <h1 class="text-4xl font-extrabold text-stone-900">Shop</h1>
+    <p class="mt-3 max-w-2xl text-lg text-stone-600">
+      Ebooks and printable recipe guides are coming soon. Sign up on the homepage to hear when they launch.
+    </p>
+
+    {
+      products.length > 0 ? (
+        <div class="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((product) => (
+            <ProductCard {...product} />
+          ))}
+        </div>
+      ) : (
+        <div class="mt-10 rounded-2xl border border-dashed border-stone-300 p-10 text-center text-stone-500">
+          No products yet — check back soon.
+        </div>
+      )
+    }
+  </section>
+</BaseLayout>

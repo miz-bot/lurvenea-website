@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../config/site';
+---
+
+<BaseLayout title={`About | ${SITE.name}`} description={`Learn about ${SITE.name} and why we test every recipe before publishing.`}>
+  <section class="mx-auto max-w-3xl px-4 py-14">
+    <h1 class="text-4xl font-extrabold text-stone-900">About {SITE.name}</h1>
+    <div class="prose prose-stone mt-6 max-w-none">
+      <p>
+        {SITE.name} is a small kitchen-first blog focused on recipes that work the first time. Every recipe
+        on this site is tested, timed, and written the way we'd want it explained to us — no life stories
+        before the ingredient list, no vague instructions.
+      </p>
+      <p>
+        We link to the specific tools and ingredients that make each recipe easier. Some of those links are
+        Amazon affiliate links, which means we may earn a small commission at no extra cost to you if you
+        make a purchase.
+      </p>
+      <p>Questions or recipe requests? Reach out any time — we read every message.</p>
+    </div>
+  </section>
+</BaseLayout>
