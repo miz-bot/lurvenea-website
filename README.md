@@ -135,13 +135,21 @@ export const ANALYTICS = {
 
 Leave both empty to disable analytics entirely.
 
-## Before you deploy
+## Deploying to Netlify
 
-- Update `site` in `astro.config.mjs` to your real production domain
-  (used to generate the sitemap, canonical URLs, and absolute OG images).
-- Update `SITE.url` in `src/config/site.ts` to match.
-- Update the `Sitemap:` line in `public/robots.txt` to match your domain.
-- Replace the placeholder SVG hero image on the sample recipe, and
-  `public/images/og-default.svg`, with real photos.
-- Deploy to Vercel or Netlify (free tier): connect the repo, build command
-  `npm run build`, output directory `dist`.
+This repo is set up to deploy on Netlify via `netlify.toml` (build command
+`npm run build`, publish directory `dist`, Node 22). Connect the GitHub repo
+in the Netlify dashboard and every push to `main` auto-deploys.
+
+The `site` value is currently set to a **placeholder**:
+`https://lurvenea.netlify.app`. Once Netlify assigns your real site URL (or
+you attach a custom domain), update it in all three places below, then
+commit and push — Netlify will redeploy automatically:
+
+- `site` in `astro.config.mjs` (used to generate the sitemap and
+  canonical/OG URLs)
+- `SITE.url` in `src/config/site.ts` (must match the line above)
+- the `Sitemap:` line in `public/robots.txt`
+
+Also replace the placeholder SVG hero image on the sample recipe, and
+`public/images/og-default.svg`, with real photos before launch.

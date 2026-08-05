@@ -3,7 +3,7 @@
 export const SITE = {
   name: 'Lurvenea',
   tagline: 'Simple, reliable recipes that actually work',
-  url: 'https://www.lurvenea.com', // must match `site` in astro.config.mjs
+  url: 'https://lurvenea.netlify.app', // TODO: update to your real Netlify/custom domain; must match `site` in astro.config.mjs
   description:
     'Lurvenea shares tested, easy-to-follow recipes with the exact tools and techniques that make them work every time.',
   defaultOgImage: '/images/og-default.svg',
