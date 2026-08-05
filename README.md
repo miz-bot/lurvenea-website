@@ -138,13 +138,13 @@ Leave both empty to disable analytics entirely.
 ## Deploying to Netlify
 
 This repo is set up to deploy on Netlify via `netlify.toml` (build command
-`npm run build`, publish directory `dist`, Node 22). Connect the GitHub repo
-in the Netlify dashboard and every push to `main` auto-deploys.
+`npm run build`, publish directory `dist`, Node 22). The GitHub repo is
+connected in the Netlify dashboard, and every push to `main` auto-deploys.
 
-The `site` value is currently set to a **placeholder**:
-`https://lurvenea.netlify.app`. Once Netlify assigns your real site URL (or
-you attach a custom domain), update it in all three places below, then
-commit and push — Netlify will redeploy automatically:
+Live URL: **https://lurvenea.netlify.app**
+
+If you later attach a custom domain in Netlify, update it in all three
+places below, then commit and push — Netlify will redeploy automatically:
 
 - `site` in `astro.config.mjs` (used to generate the sitemap and
   canonical/OG URLs)

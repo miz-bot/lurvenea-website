@@ -9,9 +9,8 @@ import mdx from '@astrojs/mdx';
 
 // https://astro.build/config
 export default defineConfig({
-  // TODO: Netlify will assign your real *.netlify.app URL (or your custom
-  // domain) after the first deploy — update this to match, then redeploy
-  // (just push to GitHub) so the sitemap and canonical URLs are correct.
+  // If you later attach a custom domain in Netlify, update this to match
+  // (and SITE.url in src/config/site.ts, and robots.txt), then push.
   site: 'https://lurvenea.netlify.app',
 
   vite: {
